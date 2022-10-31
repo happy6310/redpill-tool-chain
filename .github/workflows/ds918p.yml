@@ -156,6 +156,13 @@ jobs:
           name: dsm-${{matrix.platform}}-${{matrix.version}}
           path: images/redpill-*.img
           if-no-files-found: error
+      
+      - name: 上传PAT像到 github actions
+        uses: actions/upload-artifact@v3
+        with:
+          name: DSM-${{matrix.platform}}-${{matrix.version}}
+          path: /opt/redpill-load/cache/ds*.pat
+          if-no-files-found: error
 
       - name: 删除旧的工作流
         uses: Mattraks/delete-workflow-runs@v2

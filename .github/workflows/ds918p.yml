@@ -39,22 +39,22 @@ jobs:
           # - platform: ds3615xs
           #   version: 7.1.0-42661
 
-          # - platform: ds3617xs
-            # version: 7.0.1-42218
           - platform: ds3617xs
-            version: 7.1.0-42661
+            version: 7.0.1-42218
+          # - platform: ds3617xs
+            # version: 7.1.0-42661
 
           # - platform: ds3622xsp
           #   version: 7.0.1-42218
           # - platform: ds3622xsp
           #   version: 7.1.0-42661
 
-          - platform: ds918p
-            version: 6.2.4-25556
+          #- platform: ds918p
+            #version: 6.2.4-25556
           # - platform: ds918p
             # version: 7.0.1-42218
-          - platform: ds918p
-            version: 7.1.0-42661
+          #- platform: ds918p
+            #version: 7.1.0-42661
 
           # - platform: ds920p
           #   version: 7.0.1-42218
@@ -156,13 +156,7 @@ jobs:
           name: dsm-${{matrix.platform}}-${{matrix.version}}
           path: images/redpill-*.img
           if-no-files-found: error
-      
-      - name: 上传PAT像到 github actions
-        uses: actions/upload-artifact@v3
-        with:
-          name: DSM-${{matrix.platform}}-${{matrix.version}}
-          path: /opt/redpill-load/cache/ds*.pat
-          if-no-files-found: error
+
 
       - name: 删除旧的工作流
         uses: Mattraks/delete-workflow-runs@v2

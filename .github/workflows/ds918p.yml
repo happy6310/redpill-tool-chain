@@ -96,7 +96,7 @@ jobs:
           cp sample_user_config.json ${{matrix.platform}}_user_config.json
           
           # 添加 SataPortMap  DiskIdxMap SasIdxMap
-          sed -i -e 's/XXYYXXYYXXYY"/&,\n\t\t"SataPortMap": "24",\n\t\t"DiskIdxMap": "0004",\n\t\t"SasIdxMap": "0"/' a.json
+          sed -i -e 's/XXYYXXYYXXYY"/&,\n\t\t"SataPortMap": "24",\n\t\t"DiskIdxMap": "0004",\n\t\t"SasIdxMap": "0"/' ${{matrix.platform}}_user_config.json
 
           # 添加第二张网卡mac并设置网卡数量
           # sed -i -e 's/XXYYXXYYXXYY"/&,\n\t"mac2": "0011323D47F8",\n\t"netif_num": 2/' ${{matrix.platform}}_user_config.json
